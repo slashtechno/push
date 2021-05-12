@@ -1,4 +1,5 @@
 #!/bin/python3
+
 import os # needed to execute commands
 
 # Function to set site directory
@@ -15,7 +16,7 @@ def set_site_dir():
 def set_server_ip():
     os.system("rm /etc/push-site/server_IP.conf")
     os.system("touch /etc/push-site/server_IP.conf")
-    server_IP_file=open("/etc/push-site/site_directory.conf", "a")
+    server_IP_file=open("/etc/push-site/server_ip.conf", "a")
     server_IP=input("\n\nEnter user and ip adddress in this format:\nuser@server.ip\n")
     server_IP_file.write(server_IP)
     server_IP_file.close
