@@ -4,9 +4,9 @@ import os # needed to execute commands
 
 # Function to set site directory
 def set_site_dir():
-    os.system("rm /etc/push-site/site_directory.conf")
-    os.system("touch /etc/push-site/site_directory.conf")
-    site_directory_file=open("/etc/push-site/site_directory.conf", "a")
+    os.system("rm /etc/push-hugo/site_directory.conf")
+    os.system("touch /etc/push-hugo/site_directory.conf")
+    site_directory_file=open("/etc/push-hugo/site_directory.conf", "a")
     site_directory=input("\n\nWhat is you document root (Leave blank for default /var/www/html)\n")
     if not site_directory:
         site_directory="/var/www/html" 
@@ -14,9 +14,9 @@ def set_site_dir():
     site_directory_file.close
 
 def set_server_ip():
-    os.system("rm /etc/push-site/server_IP.conf")
-    os.system("touch /etc/push-site/server_IP.conf")
-    server_IP_file=open("/etc/push-site/server_ip.conf", "a")
+    os.system("rm /etc/push-hugo/server_IP.conf")
+    os.system("touch /etc/push-hugo/server_IP.conf")
+    server_IP_file=open("/etc/push-hugo/server_ip.conf", "a")
     server_IP=input("\n\nEnter user and ip adddress in this format:\nuser@server.ip\n")
     server_IP_file.write(server_IP)
     server_IP_file.close
@@ -31,7 +31,7 @@ while True:
         if not server_IP:
             print("\nFirst setup server IP")
             set_server_ip()
-        site_directory_file=open("/etc/push-site/site_directory.conf", "r") # open file that has the document root
+        site_directory_file=open("/etc/push-hugo/site_directory.conf", "r") # open file that has the document root
         site_directory = site_directory_file.read() # read site directory    
         if not site_directory:
             print("\nFirst setup site directory")
