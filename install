@@ -1,0 +1,10 @@
+#!/bin/bash
+cd
+git clone https://github.com/slashtechno/push-hugo
+cd push-hugo
+sudo mv push-hugo /bin
+sudo chmod +x /bin/push-hugo
+sudo mkdir /etc/push-hugo
+sudo chmod 777 /etc/push-hugo
+cd ..
+sudo rm -r push-hugo
