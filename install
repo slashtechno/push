@@ -7,6 +7,6 @@ sudo chmod +x /bin/push-hugo
 sudo mkdir /etc/push-hugo
 sudo chmod 777 /etc/push-hugo
 touch /etc/push-site/site_directory.conf
-touch /etc/push-site/server_ip.conf
+touch /etc/push-site/server_IP.conf
 cd ..
 sudo rm -r push-hugo
