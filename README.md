@@ -5,7 +5,7 @@ Push a Hugo website to a computer/server running Apache
 `wget -qO- https://raw.githubusercontent.com/slashtechno/push-hugo/main/install | bash`
 
 ### To run
-`mountUSB`
+`push-hugo`
 
 ### To uninstall
 `wget -qO- https://raw.githubusercontent.com/slashtechno/push-hugo/main/uninstall | bash`
