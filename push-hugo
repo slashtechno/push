@@ -26,7 +26,7 @@ while True:
     option = input("\n\nWhat would you like to do? \n1) Push Website\n2) Set site directory\n3) Set server IP and user\n4) Exit Program\n")
     option=int(option)
     if option == 1:
-        server_IP_file = open(r"/etc/push-hugo/serverIP.conf") # open file that has server's IP adress
+        server_IP_file = open(r"/etc/push-hugo/server_IP.conf") # open file that has server's IP adress
         server_IP = server_IP_file.read() # Read server IP
         if not server_IP:
             print("\nFirst setup server IP")
