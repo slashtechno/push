@@ -37,11 +37,10 @@ while True:
         site_directory = site_directory_file.read() # read site directory    
         if not site_directory:
             print("\nFirst setup site directory")
-            set_site_dir
-        command="ssh "+server_IP+" 'sudo rm -r "+site_directory+"/*'"
-        if command == "sudo rm -r"+server_IP+" sudo rm -r /*":
-            exit()
-        os.system(command) # SSH into server and remove all files in website directory
+            set_site_dir()
+        input(site_directory)
+        os.system("sudo chmod 777 " + site_directory)
+        os.system("ssh "+server_IP+" 'cd "+site_directory+"rm *'")
         os.system("scp -r * " + server_IP + ":" + site_directory) # copy files to website directory on server
     elif option == 2:
         set_site_dir()
