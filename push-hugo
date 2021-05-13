@@ -46,3 +46,5 @@ while True:
         set_site_dir()
     elif option == 3:
         set_server_ip()
+    elif option == 4:
+        exit()
