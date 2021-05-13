@@ -40,7 +40,7 @@ while True:
 			set_site_dir()
 		input("If this is the correct directiory press enter\n"+site_directory)
 		os.system("sudo chmod 777 " + site_directory)
-		os.system("ssh "+server_IP+" 'cd "+site_directory+"rm -r *'")
+		os.system("ssh "+server_IP+" 'cd "+site_directory+" && rm -r *'")
 		os.system("scp -r * " + server_IP + ":" + site_directory) # copy files to website directory on server
 	elif option == 2:
 		set_site_dir()
