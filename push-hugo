@@ -38,9 +38,10 @@ while True:
         if not site_directory:
             print("\nFirst setup site directory")
             set_site_dir
-            site_directory_file=open("/etc/push-hugo/site_directory.conf", "r")
-            site_directory = site_directory_file.read()
-        os.system("ssh "+server_IP+" 'sudo rm -r "+site_directory+"/*'") # SSH into server and remove all files in website directory
+        command="ssh "+server_IP+" 'sudo rm -r "+site_directory+"/*'"
+        if command == "sudo rm -r"+server_IP+" sudo rm -r /*":
+            exit()
+        os.system(command) # SSH into server and remove all files in website directory
         os.system("scp -r * " + server_IP + ":" + site_directory) # copy files to website directory on server
     elif option == 2:
         set_site_dir()
