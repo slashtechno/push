@@ -24,7 +24,7 @@ def set_server_ip():
 
 # set username for github 
 def set_username():
-	os.system("rm /etc/push/git_username")
+	os.system("rm /etc/push/git_username.conf")
 	os.system("touch /etc/push/git_username.conf")
 	git_username=input("What do you want your username to be for Github")
 	git_username_file=open("/etc/push/git_username.conf", "a")
