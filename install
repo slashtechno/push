@@ -6,9 +6,9 @@ sudo mv push /bin
 sudo chmod +x /bin/push
 sudo mkdir /etc/push
 sudo chmod 777 /etc/push
-touch /etc/push-hugo/site_directory.conf
-touch /etc/push-hugo/server_IP.conf
-touch /etc/push-hugo/git_repo.conf
-touch /etc/push-hugo/git_username.conf
+touch /etc/push/site_directory.conf
+touch /etc/push/server_IP.conf
+touch /etc/push/git_repo.conf
+touch /etc/push/git_username.conf
 cd ..
 sudo rm -r push
