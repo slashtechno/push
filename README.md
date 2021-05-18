@@ -1,15 +1,15 @@
-# push-hugo
-Push a Hugo website to a computer/server running Apache
+# push
+Push a website or code to a remote server or Github repo
 
 ### To install
-`wget -qO- https://raw.githubusercontent.com/slashtechno/push-hugo/main/install | bash`
+`wget -qO- https://raw.githubusercontent.com/slashtechno/push/main/install | bash`
 
 ### To run
 `push-hugo`
 
 ### To uninstall
-`wget -qO- https://raw.githubusercontent.com/slashtechno/push-hugo/main/uninstall | bash`
+`wget -qO- https://raw.githubusercontent.com/slashtechno/push/main/uninstall | bash`
 
 
 ### To update
-`wget -qO- https://raw.githubusercontent.com/slashtechno/push-hugo/main/update | bash`
+`wget -qO- https://raw.githubusercontent.com/slashtechno/push/main/update | bash`
