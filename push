@@ -77,6 +77,7 @@ while True:
 			print("\nFirst setup site directory")
 			set_repo()
 		os.system("git init")
+		os.system("git branch -M main")
 		os.system("git remote rm origin")
 		os.system("git add .")
 		os.system("git config user.email \"" + git_username +"\"")
@@ -86,6 +87,7 @@ while True:
 		os.system("git push -u origin main")
 	elif option == 5:
 		os.system("git init")
+		os.system("git branch -M main")
 		os.system("git remote rm origin")
 		git_username=input("What would you like your github username to be for the commit?\n")
 		git_repo=input("What is your repo SSH address")
