@@ -1,4 +1,4 @@
 #!/bin/bash
-sudo rm -r /etc/push-hugo
-sudo rm /bin/push-hugo
+sudo rm -r /etc/push
+sudo rm /bin/push
 echo Uninstall finished
