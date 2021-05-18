@@ -1,12 +1,14 @@
 #!/bin/bash
 cd
-git clone https://github.com/slashtechno/push-hugo
-cd push-hugo
-sudo mv push-hugo /bin
-sudo chmod +x /bin/push-hugo
-sudo mkdir /etc/push-hugo
-sudo chmod 777 /etc/push-hugo
+git clone https://github.com/slashtechno/push
+cd push
+sudo mv push /bin
+sudo chmod +x /bin/push
+sudo mkdir /etc/push
+sudo chmod 777 /etc/push
 touch /etc/push-hugo/site_directory.conf
 touch /etc/push-hugo/server_IP.conf
+touch /etc/push-hugo/git_repo.conf
+touch /etc/push-hugo/git_username.conf
 cd ..
-sudo rm -r push-hugo
+sudo rm -r push

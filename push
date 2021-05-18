@@ -1,0 +1,105 @@
+#!/bin/python3
+
+import os # needed to execute commands
+
+# Function to set site directory
+def set_site_dir():
+	os.system("rm /etc/push/site_directory.conf")
+	os.system("touch /etc/push/site_directory.conf")
+	site_directory_file=open("/etc/push/site_directory.conf", "a")
+	site_directory=input("\n\nWhat is you document root (Leave blank for default /var/www/html)\n")
+	if not site_directory:
+		site_directory="/var/www/html" 
+	site_directory_file.write(site_directory)
+	site_directory_file.close
+
+# Function to set server IP
+def set_server_ip():
+	os.system("rm /etc/push/server_IP.conf")
+	os.system("touch /etc/push/server_IP.conf")
+	server_IP_file=open("/etc/push/server_IP.conf", "a")
+	server_IP=input("\n\nEnter user and ip adddress in this format:\nuser@server.ip\n")
+	server_IP_file.write(server_IP)
+	server_IP_file.close
+
+# set username for github 
+def set_username():
+	os.system("rm /etc/push/git_username.conf")
+	os.system("touch /etc/push/git_username.conf")
+	git_username=input("What do you want your username to be for Github")
+	git_username_file=open("/etc/push/git_username.conf", "a")
+	git_username_file.write(git_username)
+	git_username_file.close
+
+# set Github repo address
+def set_repo():
+	os.system("rm /etc/push/git_repo")
+	os.system("touch /etc/push/git_repo.conf")
+	git_repo=input("What is your repo SSH address")
+	git_repo_file=open("/etc/push/git_username.conf", "a")
+	git_repo_file.write(git_repo)
+	git_repo_file.close
+
+while True:
+	# Ask user what they want to do
+	option = input("\n\nWhat would you like to do? \n1) Push Website\n2) Set site directory\n3) Set server IP and user\n4) Push to Github (with presets)\n5) Push to Github (manual)\n6)Set Github SSH address\n7) Set Git username\n8) Exit Program\n")
+	option=int(option)
+	if option == 1:
+		server_IP_file = open("/etc/push/server_IP.conf", "r") # open file that has server's IP adress
+		server_IP = server_IP_file.read() # Read server IP
+		if not server_IP:
+			print("\nFirst setup server IP")
+			set_server_ip()
+			server_IP_file = open("/etc/push/server_IP.conf", "r")
+			server_IP = server_IP_file.read()
+		site_directory_file=open("/etc/push/site_directory.conf", "r") # open file that has the document root
+		site_directory = site_directory_file.read() # read site directory    
+		if not site_directory:
+			print("\nFirst setup site directory")
+			set_site_dir()
+		input("If this is the correct directiory press enter\n"+site_directory)
+		os.system("ssh "+server_IP+" sudo chmod 777 "+site_directory)
+		os.system("ssh " +server_IP+" 'cd "+site_directory+" && rm -r *'")
+		os.system("scp -r * " + server_IP + ":" + site_directory) # copy files to website directory on server
+	elif option == 2:
+		set_site_dir()
+	elif option == 3:
+		set_server_ip()
+	elif option == 4:
+		git_username_file=open("/etc/push/git_username.conf", "r")
+		git_username = git_username_file.read() # Read git username
+		if not server_IP:
+			print("\nFirst setup server IP")
+			set_username()
+		git_repo_file = open("/etc/push/git_repo.conf", "r") # open file that has the document root
+		git_repo = git_repo_file.read() # read site directory    
+		if not git_repo:
+			print("\nFirst setup site directory")
+			set_repo()
+		os.system("git init")
+		os.system("git branch -M main")
+		os.system("git remote rm origin")
+		os.system("git add .")
+		os.system("git config user.email \"" + git_username +"\"")
+		os.system("git config user.name \"" + git_username + "\"")
+		os.system("git remote add origin "+git_repo)
+		os.system("git commit -m \"Commit made by "+git_username+" using slashtechno's Github push tool\"")
+		os.system("git push -u origin main")
+	elif option == 5:
+		os.system("git init")
+		os.system("git branch -M main")
+		os.system("git remote rm origin")
+		git_username=input("What would you like your github username to be for the commit?\n")
+		git_repo=input("What is your repo SSH address")
+		os.system("git config user.email \"" + git_username +"\"")
+		os.system("git config user.name \"" + git_username +"\"")
+		os.system("git add .")
+		os.system("git remote add origin "+git_repo)
+		os.system("git commit -m \"Commit made by "+git_username+" using slashtechno's Github push tool\"")
+		os.system("git push -u origin main")
+	elif option == 6:
+		set_repo()
+	elif option == 7:
+		set_username()
+	elif option == 8:
+		exit()
