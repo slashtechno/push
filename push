@@ -67,7 +67,7 @@ while True:
 		set_server_ip()
 	elif option == 4:
 		git_username_file=open("/etc/push/git_username.conf", "r")
-		git_username = git_username_file.read() # Read git usernam
+		git_username = git_username_file.read() # Read git username
 		if not server_IP:
 			print("\nFirst setup server IP")
 			set_username()
@@ -77,7 +77,7 @@ while True:
 			print("\nFirst setup site directory")
 			set_repo()
 		os.system("git init")
-		os.system("git add *")
+		os.system("git add -r *")
 		os.system("git config user.email \"" + git_username +"\"")
 		os.system("git config user.name \"" + git_username + "\"")
 		os.system("git remote add origin "+git_repo)
@@ -89,7 +89,7 @@ while True:
 		git_repo=input("What is your repo SSH address")
 		os.system("git config user.email \"" + git_username +"\"")
 		os.system("git config user.name \"" + git_username +"\"")
-		os.system("git add *")
+		os.system("git add -r *")
 		os.system("git remote add origin "+git_repo)
 		os.system("git commit -m \"Commit made by "+git_username+" using slashtechno's Github push tool\"")
 		os.system("git push -u origin main")
