@@ -5,7 +5,7 @@ Push a website or code to a remote server or Github repo
 `wget -qO- https://raw.githubusercontent.com/slashtechno/push/main/install | bash`
 
 ### To run
-`push-hugo`
+`push`
 
 ### To uninstall
 `wget -qO- https://raw.githubusercontent.com/slashtechno/push/main/uninstall | bash`
