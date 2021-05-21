@@ -68,7 +68,7 @@ while True:
 	elif option == 4:
 		git_username_file=open("/etc/push/git_username.conf", "r")
 		git_username = git_username_file.read() # Read git username
-		if not server_IP:
+		if not git_username:
 			print("\nFirst setup server IP")
 			set_username()
 		git_repo_file = open("/etc/push/git_repo.conf", "r") # open file that has the document root
