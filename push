@@ -76,7 +76,6 @@ while True:
 		if not git_repo:
 			print("\nFirst setup site directory")
 			set_repo()
-		os.system("git init")
 		os.system("git branch -M main")
 		os.system("git remote rm origin")
 		os.system("git add .")
@@ -86,7 +85,6 @@ while True:
 		os.system("git commit -m \"Commit made by "+git_username+" using slashtechno's Github push tool\"")
 		os.system("git push -u origin main")
 	elif option == 5:
-		os.system("git init")
 		os.system("git branch -M main")
 		os.system("git remote rm origin")
 		git_username=input("What would you like your github username to be for the commit?\n")
