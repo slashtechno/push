@@ -31,6 +31,15 @@ def set_username():
 	git_username_file.write(git_username)
 	git_username_file.close
 
+# set email for github 
+def set_git_email():
+	os.system("rm /etc/push/git_email.conf")
+	os.system("touch /etc/push/git_email.conf")
+	git_email=input("What do you want your email to be for pushing to Github")
+	git_email_file=open("/etc/push/git_email.conf", "a")
+	git_email_file.write(git_email)
+	git_email_file.close
+
 # set Github repo address
 def set_repo():
 	os.system("rm /etc/push/git_repo")
@@ -66,11 +75,17 @@ while True:
 	elif option == 3:
 		set_server_ip()
 	elif option == 4:
+		git_branch=input("What branch would you like to push to?\n")
 		git_username_file=open("/etc/push/git_username.conf", "r")
 		git_username = git_username_file.read() # Read git username
 		if not git_username:
-			print("\nFirst setup server IP")
+			print("\nFirst setup username")
 			set_username()
+		git_email_file=open("/etc/push/git_username.conf", "r")
+		git_email = git_username_file.read() # Read git username
+		if not git_username:
+			print("\nFirst setup Email")
+			set_git_email()
 		git_repo_file = open("/etc/push/git_repo.conf", "r") # open file that has the document root
 		git_repo = git_repo_file.read() # read site directory    
 		if not git_repo:
@@ -79,22 +94,24 @@ while True:
 		os.system("git branch -M main")
 		os.system("git remote rm origin")
 		os.system("git add .")
-		os.system("git config user.email \"" + git_username +"\"")
+		os.system("git config user.email \"" + git_email +"\"")
 		os.system("git config user.name \"" + git_username + "\"")
 		os.system("git remote add origin "+git_repo)
 		os.system("git commit -m \"Commit made by "+git_username+"\"")
-		os.system("git push -u origin main")
+		os.system("git push -u origin "+git_branch)
 	elif option == 5:
 		os.system("git branch -M main")
 		os.system("git remote rm origin")
 		git_username=input("What would you like your github username to be for the commit?\n")
-		git_repo=input("What is your repo SSH address")
-		os.system("git config user.email \"" + git_username +"\"")
+		git_repo=input("What is your repo SSH address?\n")
+		git_email=input("What would you like the meial to be for pushing to Github?\n")
+		git_branch=input("What is the git branch you would like to push to?\n")
+		os.system("git config user.email \"" + git_email +"\"")
 		os.system("git config user.name \"" + git_username +"\"")
 		os.system("git add .")
 		os.system("git remote add origin "+git_repo)
 		os.system("git commit -m \"Commit made by "+git_username+"\"")
-		os.system("git push -u origin main")
+		os.system("git push -u origin "+git_branch)
 	elif option == 6:
 		set_repo()
 	elif option == 7:
