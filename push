@@ -51,7 +51,7 @@ def set_repo():
 
 while True:
 	# Ask user what they want to do
-	option = input("\n\nWhat would you like to do? \n1) Push Website\n2) Set site directory\n3) Set server IP and user\n4) Push to Github (with presets)\n5) Push to Github (manual)\n6)Set Github SSH address\n7) Set Git username\n8) Exit Program\n")
+	option = input("\n\nWhat would you like to do? \n1) Push Website\n2) Set site directory\n3) Set server IP and user\n4) Push to Github (with presets)\n5) Push to Github (manual)\n6)Set Github SSH address\n7) Set Git username\n8) Set Email for Git\n 9) Exit Program\n")
 	option=int(option)
 	if option == 1:
 		server_IP_file = open("/etc/push/server_IP.conf", "r") # open file that has server's IP adress
@@ -117,4 +117,6 @@ while True:
 	elif option == 7:
 		set_username()
 	elif option == 8:
+		set_git_email()
+	elif option == 9:
 		exit()
