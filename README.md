@@ -1,9 +1,7 @@
-# Warning: This branch is in development, and isn't completely finished!
-
 # push
 Push a website or code to a remote server or Github
 
-## Windows
+## Windows (Beta)
 
 ### To install
 
