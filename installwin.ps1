@@ -3,8 +3,6 @@ $old = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentContr
 $new  =  "$old;$Env:Programdata\push"
 Set-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name path -Value $new
 
-Write-Host "Set the enviornment varibles!"
-
 # This makes the push directory in ProgramData and changes the directory to it.
 cd $Env:Programdata
 mkdir push
