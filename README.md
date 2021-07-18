@@ -29,3 +29,6 @@ The installer only requires Administrator access in order to add a PATH variable
 
 ### To update
 `wget -qO- https://raw.githubusercontent.com/slashtechno/push/main/update | bash`
+
+## Credits
+* [@Glitch752](https://github.com/glitch752) for Windows support
